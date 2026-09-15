@@ -3,51 +3,53 @@
   "claims": [
     {
       "id": "IMPL-MCP-001",
-      "text": "The server exposes deterministic planning tools without making outbound network requests.",
-      "kind": "observation",
-      "status": "supported",
+      "text": "The runtime package makes no outbound network requests.",
+      "kind": "observation", "status": "supported",
       "boundary": ["src/inference_advisor", "release 0.1.0"],
-      "depends_on": [],
-      "conflicts_with": [],
-      "falsification_tests": [
-        "Static inspection finds an HTTP client or outbound socket path in the runtime package"
-      ],
-      "source_ref": "src/inference_advisor/engine.py",
-      "uncertainty": "low",
-      "evidence": [
-        {
-          "ref": "tests/test_engine.py",
-          "kind": "observed",
-          "direction": "supports",
-          "source_quality": "test",
-          "description": "Unit tests exercise deterministic analysis, architecture, BOM, screening, and persistence behavior.",
-          "source_id": "local-test-suite"
-        }
-      ]
+      "depends_on": [], "conflicts_with": [],
+      "falsification_tests": ["Static inspection finds an HTTP client or outbound socket path"],
+      "source_ref": "src/inference_advisor/engine.py", "uncertainty": "low",
+      "evidence": [{"ref": "tests/test_engine.py", "kind": "observed", "direction": "supports", "source_quality": "test", "description": "Tests exercise the deterministic planning engine.", "source_id": "local-test-suite"}]
     },
     {
-      "id": "PORTABILITY-001",
-      "text": "The Python test suite runs on Windows, macOS, and Linux.",
-      "kind": "prediction",
-      "status": "draft",
-      "boundary": ["GitHub hosted runners", "Python 3.12"],
-      "depends_on": [],
-      "conflicts_with": [],
-      "falsification_tests": [
-        "Any operating-system matrix job fails"
-      ],
-      "source_ref": ".github/workflows/ci.yml",
-      "uncertainty": "medium",
-      "evidence": [
-        {
-          "ref": ".github/workflows/ci.yml",
-          "kind": "asserted",
-          "direction": "supports",
-          "source_quality": "artifact",
-          "description": "The CI definition includes Ubuntu, Windows, and macOS jobs; remote run evidence is still pending.",
-          "source_id": "ci-workflow-definition"
-        }
-      ]
+      "id": "PORTABILITY-LINUX-001",
+      "text": "The test suite passes on Ubuntu with Python 3.12.",
+      "kind": "observation", "status": "supported",
+      "boundary": ["GitHub ubuntu-latest", "Python 3.12"],
+      "depends_on": [], "conflicts_with": [],
+      "falsification_tests": ["The Ubuntu matrix job fails"],
+      "source_ref": ".github/workflows/ci.yml", "uncertainty": "low",
+      "evidence": [{"ref": "https://github.com/tbitcs/manufacturing-inference-advisor/actions/runs/35003632109", "kind": "observed", "direction": "supports", "source_quality": "test", "description": "The Ubuntu job passed.", "source_id": "github-actions-35003632109-ubuntu", "observed_at": "2026-09-15T17:49:00Z", "content_hash": "d62d40f46df1463b00df810e5a00126bc3457026"}]
+    },
+    {
+      "id": "PORTABILITY-WINDOWS-001",
+      "text": "The test suite passes on Windows with Python 3.12.",
+      "kind": "observation", "status": "supported",
+      "boundary": ["GitHub windows-latest", "Python 3.12"],
+      "depends_on": [], "conflicts_with": [],
+      "falsification_tests": ["The Windows matrix job fails"],
+      "source_ref": ".github/workflows/ci.yml", "uncertainty": "low",
+      "evidence": [{"ref": "https://github.com/tbitcs/manufacturing-inference-advisor/actions/runs/35003632109", "kind": "observed", "direction": "supports", "source_quality": "test", "description": "The Windows job passed.", "source_id": "github-actions-35003632109-windows", "observed_at": "2026-09-15T17:49:00Z", "content_hash": "d62d40f46df1463b00df810e5a00126bc3457026"}]
+    },
+    {
+      "id": "PORTABILITY-MACOS-001",
+      "text": "The test suite passes on macOS with Python 3.12.",
+      "kind": "observation", "status": "supported",
+      "boundary": ["GitHub macos-latest", "Python 3.12"],
+      "depends_on": [], "conflicts_with": [],
+      "falsification_tests": ["The macOS matrix job fails"],
+      "source_ref": ".github/workflows/ci.yml", "uncertainty": "low",
+      "evidence": [{"ref": "https://github.com/tbitcs/manufacturing-inference-advisor/actions/runs/35003632109", "kind": "observed", "direction": "supports", "source_quality": "test", "description": "The macOS job passed.", "source_id": "github-actions-35003632109-macos", "observed_at": "2026-09-15T17:49:00Z", "content_hash": "d62d40f46df1463b00df810e5a00126bc3457026"}]
+    },
+    {
+      "id": "CONTAINER-READONLY-001",
+      "text": "The CI image passes its gate with a read-only root filesystem.",
+      "kind": "observation", "status": "supported",
+      "boundary": ["GitHub ubuntu-latest", "Docker CI target"],
+      "depends_on": [], "conflicts_with": [],
+      "falsification_tests": ["The read-only Docker job fails"],
+      "source_ref": ".github/workflows/ci.yml", "uncertainty": "low",
+      "evidence": [{"ref": "https://github.com/tbitcs/manufacturing-inference-advisor/actions/runs/35003632109", "kind": "observed", "direction": "supports", "source_quality": "test", "description": "The read-only Docker container job passed.", "source_id": "github-actions-35003632109-container", "observed_at": "2026-09-15T17:49:00Z", "content_hash": "d62d40f46df1463b00df810e5a00126bc3457026"}]
     }
   ]
 }
