@@ -1,0 +1,2 @@
+{"schema_version":"inference-advisor/v1","models":["ProjectRequest","ModelWorkload","Concurrency","Compliance","Component","SourcingPolicy"],"input_policy":"Pydantic strict shape with unknown fields rejected"}
+

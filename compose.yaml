@@ -1,0 +1,31 @@
+name: ${COMPOSE_PROJECT_NAME:-manufacturing-inference-advisor}
+services:
+  mcp:
+    image: ${INFERENCE_MCP_IMAGE:-manufacturing-inference-advisor:local}
+    build:
+      context: .
+      target: runtime
+    stdin_open: true
+    read_only: true
+    tmpfs: [/tmp]
+    volumes:
+      - projects:/data
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+  ci:
+    image: manufacturing-inference-advisor:ci
+    build:
+      context: .
+      target: ci
+    profiles: [tools]
+    read_only: true
+    tmpfs: [/tmp]
+    environment:
+      COVERAGE_FILE: /tmp/.coverage
+      MYPY_CACHE_DIR: /tmp/mypy
+      RUFF_CACHE_DIR: /tmp/ruff
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  projects:

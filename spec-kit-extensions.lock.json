@@ -1,0 +1,9 @@
+{
+  "spec_kit": {"version": "1.0.6"},
+  "engine": {"name": "applied-epistemic-engineering", "version": "1.0.2"},
+  "extensions": [
+    {"id": "evaluator", "version": "1.0.0", "source": "https://github.com/electrohire/spec-kit-evaluator/releases/download/v1.0.0/evaluator.zip", "sha256": "deccff16968472e689a1b657935e82834d53b28444e89d7e46304dec8ef315f0", "classification": "community"},
+    {"id": "aee", "version": "1.0.0", "commit": "8a6251e483345c7e551549f0ac641368e12661d6", "source": "https://github.com/electrohire/spec-kit-aee/archive/refs/tags/v1.0.0.zip", "sha256": "7be7e11549ae7f9ebfee740af7f61d5b16098f68d89cc454ce51d0134cc18399", "classification": "community"}
+  ]
+}
+

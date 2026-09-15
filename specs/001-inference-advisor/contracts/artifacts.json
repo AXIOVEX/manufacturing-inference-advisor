@@ -1,0 +1,1 @@
+{"schema_version":"inference-advisor/v1","artifacts":["requirements","analysis","architecture","hardware_spec","bom","compliance","deployment"],"persistence":"explicit tool call only","integrity":"SHA-256 of saved JSON"}

@@ -1,0 +1,1 @@
+{"schema_version":"inference-advisor/v1","note":"Workflow controls only; prohibited countries and contract clauses must be supplied by an authorized reviewer.","profiles":["standard","enterprise_restricted","cmmc","itar"]}

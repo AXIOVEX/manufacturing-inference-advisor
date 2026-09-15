@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "claims": [
+    {
+      "id": "IMPL-MCP-001",
+      "text": "The server exposes deterministic planning tools without making outbound network requests.",
+      "kind": "observation",
+      "status": "supported",
+      "boundary": ["src/inference_advisor", "release 0.1.0"],
+      "depends_on": [],
+      "conflicts_with": [],
+      "falsification_tests": [
+        "Static inspection finds an HTTP client or outbound socket path in the runtime package"
+      ],
+      "source_ref": "src/inference_advisor/engine.py",
+      "uncertainty": "low",
+      "evidence": [
+        {
+          "ref": "tests/test_engine.py",
+          "kind": "observed",
+          "direction": "supports",
+          "source_quality": "test",
+          "description": "Unit tests exercise deterministic analysis, architecture, BOM, screening, and persistence behavior.",
+          "source_id": "local-test-suite"
+        }
+      ]
+    },
+    {
+      "id": "PORTABILITY-001",
+      "text": "The Python test suite runs on Windows, macOS, and Linux.",
+      "kind": "prediction",
+      "status": "draft",
+      "boundary": ["GitHub hosted runners", "Python 3.12"],
+      "depends_on": [],
+      "conflicts_with": [],
+      "falsification_tests": [
+        "Any operating-system matrix job fails"
+      ],
+      "source_ref": ".github/workflows/ci.yml",
+      "uncertainty": "medium",
+      "evidence": [
+        {
+          "ref": ".github/workflows/ci.yml",
+          "kind": "asserted",
+          "direction": "supports",
+          "source_quality": "artifact",
+          "description": "The CI definition includes Ubuntu, Windows, and macOS jobs; remote run evidence is still pending.",
+          "source_id": "ci-workflow-definition"
+        }
+      ]
+    }
+  ]
+}

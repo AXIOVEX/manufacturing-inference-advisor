@@ -1,0 +1,16 @@
+name: michigan-workforce-intelligence
+title: Michigan Workforce Intelligence
+type: server
+image: michigan-workforce-mcp:local
+description: Audited Michigan workforce, economic, education and transition evidence tools.
+user: "10001"
+disableNetwork: true
+env:
+  - name: MIJOBS_DATABASE_URL
+    value: sqlite:///file:/data/mijobs.db?mode=ro&uri=true
+  - name: MIJOBS_DATABASE_READ_ONLY
+    value: "true"
+  - name: MIJOBS_MCP_WRITE_ENABLED
+    value: "false"
+volumes:
+  - michigan-workforce-intelligence_evidence:/data:ro

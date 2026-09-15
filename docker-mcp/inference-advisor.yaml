@@ -1,0 +1,10 @@
+name: manufacturing-inference-advisor
+title: Manufacturing Inference Advisor
+type: server
+image: manufacturing-inference-advisor:local
+description: Vendor-neutral on-site AI inference sizing, architecture, BOM, sourcing evidence and deployment planning.
+user: "10001"
+disableNetwork: true
+volumes:
+  - manufacturing-inference-advisor_projects:/data:rw
+

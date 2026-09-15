@@ -1,0 +1,13 @@
+version: 1
+profile:
+  id: manufacturing-intelligence
+  name: Manufacturing Intelligence
+  servers:
+    - file://manufacturing-intelligence/michigan-workforce.yaml
+    - file://manufacturing-intelligence/inference-advisor.yaml
+client_command:
+  command: docker
+  args: [mcp, gateway, run, --profile, manufacturing-intelligence, --verify-signatures=false, --block-network]
+notes:
+  - Local development images are unsigned; production distribution should use signed immutable image digests.
+  - The gateway profile starts both servers as isolated containers over stdio.
