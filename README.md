@@ -2,7 +2,7 @@
 
 Manufacturing Inference Advisor helps an AI agent plan private inference infrastructure without pretending that incomplete requirements are procurement facts. It validates workloads, estimates GPU and system capacity, evaluates reuse of current infrastructure, compares architecture patterns, creates hardware-neutral specifications and BOMs, screens sourcing evidence, and produces staged deployment plans.
 
-It is a companion to [Michigan Workforce Intelligence](../michigan-workforce-intelligence). Docker Desktop is the common runtime, and one Docker MCP Gateway profile can expose both servers to Codex or another MCP client.
+It is a companion to [Michigan Workforce Intelligence](https://github.com/AXIOVEX/michigan-workforce-intelligence). Docker Desktop is the common runtime, and one Docker MCP Gateway profile can expose both servers to Codex or another MCP client.
 
 ## Start here
 
