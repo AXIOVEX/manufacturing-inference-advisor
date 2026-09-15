@@ -48,7 +48,7 @@ The baseline is catalog-only and the gateway command blocks network access. Gene
 
 The repository uses Spec Kit 1.0.6, Applied Epistemic Engineering engine 1.0.2, and community AEE/Evaluator extensions 1.0.0. Immutable sources and SHA-256 archive digests are recorded in `spec-kit-extensions.lock.json`; `python scripts/verify_extensions.py` validates installed manifests. AEE challenges evidence claims and records uncertainty, but does not prove truth or compliance.
 
-A representative claim set is stored at `evidence/aee-claims.json`. Run the installed adapter with `py -3.12 .specify/extensions/aee/scripts/python/run_aee.py --project-root . assess --input evidence/aee-claims.json --phase after_implement --threshold 0.70 --no-ledger` on Windows, or replace `py -3.12` with `python3` on macOS/Linux. The portability claim intentionally stays below the gate until remote jobs have produced observed results; an `iterate` exit demonstrates that the extension blocks an unevidenced assertion.
+A representative claim set is stored at `evidence/aee-claims.json`. Run the installed adapter with `py -3.12 .specify/extensions/aee/scripts/python/run_aee.py --project-root . assess --input evidence/aee-claims.json --phase after_implement --threshold 0.70 --no-ledger` on Windows, or replace `py -3.12` with `python3` on macOS/Linux. The portability claim is supported by the successful Windows, macOS, Linux, and read-only-container jobs in GitHub Actions run 35003632109.
 
 ## Portability, tests and artifacts
 
