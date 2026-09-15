@@ -34,4 +34,9 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - run: docker build --target ci -t manufacturing-inference-advisor:ci .
-      - run: docker run --rm --read-only --tmpfs /tmp manufacturing-inference-advisor:ci
+      - run: >-
+          docker run --rm --read-only --tmpfs /tmp
+          -e COVERAGE_FILE=/tmp/.coverage
+          -e MYPY_CACHE_DIR=/tmp/mypy
+          -e RUFF_CACHE_DIR=/tmp/ruff
+          manufacturing-inference-advisor:ci
