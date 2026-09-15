@@ -13,6 +13,8 @@ python scripts/docker_mcp.py verify
 docker mcp gateway run --profile manufacturing-intelligence --verify-signatures=false --block-network
 ```
 
+For the Rich interactive manager, run `uv run inference-advisor` and choose setup, profile validation, live dual-server verification, or gateway-command output.
+
 The same commands work in PowerShell, Command Prompt, macOS and Linux shells. The script builds `manufacturing-inference-advisor:local`, builds the workforce repository's `mcp-stdio` target as `michigan-workforce-mcp:local`, creates or updates the `manufacturing-intelligence` profile, and connects the profile to Codex. Set `DOCKER_MCP_CLIENT` to another supported Docker MCP client or `none`. `verify` makes a live tool call to each server through the gateway. Configure any additional MCP client to run the final command over stdio. Local images are unsigned, so the explicit development flag disables signature verification; publish signed digest-pinned images before shared production use. See [Docker MCP setup](docs/docker-mcp-setup.md).
 
 For direct development:
