@@ -4,6 +4,8 @@ Manufacturing Inference Advisor helps an AI agent plan private inference infrast
 
 It is a companion to [Michigan Workforce Intelligence](https://github.com/AXIOVEX/michigan-workforce-intelligence). Docker Desktop is the common runtime, and one Docker MCP Gateway profile can expose both servers to Codex or another MCP client.
 
+A project by [Axiovex Systems](https://axiovexsystems.com).
+
 ## Start here
 
 Requirements:
